@@ -55,3 +55,28 @@ console.log(porcentagem)
 }
 const gorjetaInput = document.querySelector("#outra")
 gorjetaInput.addEventListener("input", receberPorcentagem)
+
+function calcular() {
+    if(conta !== 0 && porcentagem !== 0 && pessoas !== 0){
+        const strongGorjetaTotal = document.querySelector(".gorjeta-total > strong")
+        strongGorjetaTotal.innerHTML = `R$ ${((conta * porcentagem) / pessoas).toFixed(2)}`
+
+    }
+}
+
+ const botaoLimpar = document.querySelector(".resultados button")
+ botaoLimpar.addEventListener("click", limpar)
+
+ function limpar() {
+    contaInput.value = ""
+    botoesGorjeta.forEach(botao => {
+        botao.classList.remove("botao-ativo")
+    })
+    gorjetaInput.value = ""
+
+    pessoasInput.value = ""
+
+    document.querySelector(".gorjeta-total > strong").innerHTML = "R$ 0.00"
+    document.querySelector(".total > strong").innerHTML = "R$ 0.00"
+ }
+
